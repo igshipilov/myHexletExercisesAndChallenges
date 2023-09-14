@@ -1,0 +1,217 @@
+:root {
+    --light: #fafafa;
+    --red: #e53935;
+    --green: #4caf50;
+    --blue: #2196f3;
+  }
+  
+  html {
+    color: #333;
+    font: 18px/1.5 sans-serif;
+  
+    background-color: var(--light);
+  }
+  
+  body {
+    margin: 0;
+    padding: 50px 0;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .container {
+    width: 1100px;
+    margin: 0 auto;
+  }
+  
+  p {
+    margin: 0;
+    margin-top: 5px;
+  }
+  
+  .header {
+    position: relative;
+  }
+  
+  .histogram {
+    display: flex;
+    flex-direction: column;
+  
+    /* margin-left: auto;
+    margin-right: auto; */
+  
+  }
+  
+  .histogram-header {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .histogram-header-blue {
+    position: relative;
+  }
+  
+  .histogram-header-red {
+    position: relative;
+  }
+  
+  .histogram-header-green {
+    position: relative;
+  }
+  
+  /* [class~="header"] {
+    color: red;
+  } */
+  
+  /* [class="header"]:nth-child(1n+1) {
+    color: red;
+  } */
+  
+  /* thead th:not(:first-child) {
+    color: red;
+  } */
+  
+  /* th:nth-child(n+2) {
+    color: red;
+  } */
+  
+  th:nth-child(n+2)::before {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  
+    display: inline-block;
+  
+    height: 10px;
+    width: 10px;
+  
+    content: "";
+  }
+  
+  .histogram-header-blue::before {
+    background-color: var(--blue);
+  }
+  
+  .histogram-header-red::before {
+    background-color: var(--red);
+  }
+  
+  .histogram-header-green::before {
+    background-color: var(--green);
+  }
+  
+  /* tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  } */
+  
+  tbody {
+    display: flex;
+    justify-content: center;
+  
+    /* border-spacing: 2000px; */
+  }
+  
+  .histogram-row {
+    position: relative;
+  
+    display: flex;
+    justify-content: center;
+  
+    height: 400px;
+    padding: 0 50px;
+  }
+  
+  .histogram-name {
+    position: absolute;
+    bottom: 405px;
+  
+    font-weight: 700;
+  }
+  
+  .histogram-col {
+    padding: 10px;
+  }
+  
+  td {
+    position: relative;
+  
+    display: flex;
+    align-items:flex-end;
+  
+  }
+  
+  p {
+    position: absolute;
+    left: calc(50%);
+    bottom: -20px;
+    transform: translateX(-50%);
+  }
+  
+  tr td:nth-child(2) span {
+    background-color: var(--blue);
+  }
+  
+  tr td:nth-child(3) span {
+    background-color: var(--red);
+  }
+  
+  tr td:nth-child(4) span {
+    background-color: var(--green);
+  }
+  
+  [data-height="40"] {
+    height: 40%;
+    /* height: attr(data-height="40" %); */
+  }
+  
+  [data-height="80"] {
+    height: 80%;
+  }
+  
+  [data-height="75"] {
+    height: 75%;
+  }
+  
+  [data-height="35"] {
+    height: 35%;
+  }
+  
+  [data-height="63"] {
+    height: 63%;
+  }
+  
+  [data-height="50"] {
+    height: 50%;
+  }
+  
+  [data-height="90"] {
+    height: 90%;
+  }
+  
+  [data-height="77"] {
+    height: 77%;
+  }
+  
+  [data-height="80"] {
+    height: 80%;
+  }
+  
+  /* END */
+  
+  .w-50px {
+    width: 50px;
+  }
+  
+  .mt-50px {
+    margin-top: 50px;
+  }
+  
+  .px-20 {
+    padding-right: 20px;
+    padding-left: 20px;
+  }

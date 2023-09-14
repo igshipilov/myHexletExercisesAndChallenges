@@ -1,0 +1,24 @@
+{
+  "name": "workfiles",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "my work files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crc-32": "*",
+    "lodash": "*",
+    "fakerator": "*",
+    "jest": "*"
+  },
+  "devDependencies": {
+    "eslint": "^8.47.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.1"
+  }
+}

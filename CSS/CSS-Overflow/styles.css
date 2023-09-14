@@ -1,0 +1,43 @@
+body {
+    background-color: #111;
+    color:antiquewhite;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+
+
+body div h1::first-letter {
+    font-size: 1.5em;
+    color:aquamarine;
+}
+
+.main {
+    width: 500px;
+    background-color:darkslategray;
+
+    padding: 2rem;
+    overflow-x: hidden;
+}
+
+.title {
+    font: 900 40px serif;
+    overflow-x: hidden;
+    padding: 0;
+    line-height: 3rem;
+}
+
+.description p {
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+article {
+    width: 180%;
+    column-count: 3;
+    column-gap: 2rem;
+
+    margin-left: 5rem;
+    margin-top: 2rem;
+}

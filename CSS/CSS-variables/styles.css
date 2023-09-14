@@ -1,0 +1,17 @@
+body {
+    font: 20px/1.5 sans-serif;
+    color:beige;
+}
+
+div > p {
+    --test-var: red;
+    color:var(--test-var);
+}
+
+section {
+    color:var(--text-color);
+}
+
+:root {
+    --text-color:aqua;
+}

@@ -1,0 +1,100 @@
+/* BEGIN (write your solution here) */
+@font-face {
+  font-family:"Raleway Regular" ;
+  src: url("../assets/fonts/Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url("../assets/fonts/Raleway-Bold.ttf");
+}
+/* END */
+
+body {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 50px;
+ 
+  color: #eee;
+
+  /* BEGIN (write your solution here) */
+  font-family: "Raleway Regular", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  /* END */
+
+  background-image: linear-gradient(to right top, #222831, #282d36, #2d333b, #333841, #393e46);
+}
+
+img {
+  max-width: 100%;
+
+  vertical-align: middle;
+}
+
+a {
+  color: inherit;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  color: #00adb5;
+  font-size: 1.5em;
+}
+
+.tabs {
+  width: 1024px;
+  margin: 0 auto;
+
+  /* BEGIN (write your solution here) */
+  columns: 3;
+  column-gap: 0;
+
+  /* END */
+}
+
+
+.tab-name{
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color:#00adb5 ;
+  display: block;
+  
+
+  
+}
+
+.tab-name:hover{
+  border-bottom: 3px solid #5ffbf1 ;
+ 
+}
+
+
+
+/* BEGIN (write your solution here) */
+
+.tabs-content{
+  background-color:#393e46 ;
+  
+}
+.tabs-content-item{
+  padding: 20px ;
+  display: none;
+  
+
+}
+
+.tab-name[data-tab="html"]:hover~.tabs-content [data-tab-content="html"]{
+  display: block;
+}
+/* END */
+
+.span-all {
+  column-span: all;
+}

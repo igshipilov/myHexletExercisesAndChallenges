@@ -1,0 +1,78 @@
+:root {
+    --roundness: 0.4rem;
+}
+
+body {
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #fff;
+
+    background-color: #111;
+}
+
+.top-bar {
+    columns: 2;
+    column-gap: 0;
+}
+
+.menu {
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 50px;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: gray;
+    border-start-start-radius: var(--roundness);
+    border-start-end-radius: var(--roundness);
+}
+
+
+.menu:hover,
+.menu:focus {
+    background-color: greenyellow;
+}
+
+.dropdown {
+    display: none; /* это чтобы maring из child не влиял на parent */
+    
+    width: 100%;
+    
+    position: relative;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+
+    list-style: none;
+
+    opacity: 1;
+}
+
+ul {
+    display: none;
+
+    background-color: peru;
+    border-end-start-radius: var(--roundness);
+    border-end-end-radius: var(--roundness);
+}
+
+.dd-padding-bot > * {
+    padding-bottom: 1rem;
+}
+
+.dd-margin-top {
+    margin-top: 50px;
+}
+
+.menu:hover .dropdown,
+.menu:focus .dropdown {
+    /* position: absolute;
+    left: 0; */
+
+    display: inline-block;
+    cursor: pointer;
+}

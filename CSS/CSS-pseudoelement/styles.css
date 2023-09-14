@@ -1,0 +1,49 @@
+body {
+    background-color: #333333;
+    color:aliceblue;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+section + span::before {
+    content: "before";
+    color: tomato;
+}
+
+span + span::after {
+    content: "after";
+    color: tomato;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.personal-ul li {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.personal-ul > li::before {
+    position: absolute;
+    left: -30px;
+
+    width: 20px;
+    height: 20px;
+
+    background-image: url(/src/imgs/icons8_youtube_96px.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    content: "";
+
+
+    color: green;
+}
+
+li::first-letter {
+    color: yellowgreen;
+    font-size: 2em;
+    font-family: serif;
+    font-variant-caps:all-petite-caps;
+}
