@@ -1,6 +1,3 @@
-// console.log(process.env.USER);
-// console.log(process.env.PWD);
-// console.log(process.env.NODE_ENV);
+const arr = [1, 2, 3];
 
-// console.log(process.env);
-console.log(process);
+console.log(arr.slice());
