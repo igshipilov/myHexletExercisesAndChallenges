@@ -11,10 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.8",
     "crc-32": "*",
-    "lodash": "*",
     "fakerator": "*",
-    "jest": "*"
+    "jest": "*",
+    "lodash": "*"
   },
   "devDependencies": {
     "eslint": "^8.47.0",

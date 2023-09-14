@@ -8,4 +8,8 @@ if (capitalize('') !== '') {
   throw new Errow('Функция работает неверно!');
 }
 
+if (capitalize('hello') !== 'hellOo') {
+  throw new Error('testing my !!!error');
+}
+
 console.log('Все тесты пройдены!')

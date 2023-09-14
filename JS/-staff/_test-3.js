@@ -1,12 +1,6 @@
-import _ from 'lodash';
+// console.log(process.env.USER);
+// console.log(process.env.PWD);
+// console.log(process.env.NODE_ENV);
 
-const test = [
-  [0, 0, 1],
-  [1, 1, 1],
-  [0, 1, 1],
-];
-
-const wha = test;
-
-console.log(...test);
-console.log(wha);
+// console.log(process.env);
+console.log(process);

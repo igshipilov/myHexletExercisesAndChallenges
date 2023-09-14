@@ -1,14 +1,23 @@
-import _ from 'lodash';
+// const functions = {
+//   right1: (items) => items[items.length - 1],
+//   fail1: () => 2,
+//   fail2: (items) => items[0],
+// };
 
-// const obj = { a: 1, b: 2 };
+// console.log(functions['right1']('hellow'));
+// console.log(functions['right1']('bar'))
+// console.log(functions['fail1']('bar'))
 
-// const get = _.get(obj, 'b', 'nope');
+// const obj = {
+//   a: (some) => some * 2,
+// };
 
-// console.log(get);
+// console.log(obj['a'](3))
 
-const arr1 = [1, 2, 3];
-const arr2 = [3, 3, 4, 5, 6];
 
-console.log(_.concat(arr1, arr2));
+const getDouble = (number) => number * 2;
 
-console.log(_.times(4, _.constant(1)));
+const test = getDouble;
+
+console.log(getDouble(3));
+console.log(test(4));
