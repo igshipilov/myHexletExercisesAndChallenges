@@ -1,20 +1,35 @@
-import { myFunc } from './_test-4.js';
+let url = new URL("https://example.com?foo=1&bar=2");
+console.log(url);
+console.log();
 
-console.log(myFunc());
+console.log(url.search);
+console.log();
 
-// // import assert from "power-assert";
+let params = new URLSearchParams(url.search);
+console.log(params);
+console.log();
 
-// // const array = [1, 2, 3];
-// // const zero = 0;
-// // const two = 2;
+params.set('foo', 'testONE');
+console.log(params);
+console.log();
 
-// // assert(array.indexOf(zero) === two);
+let one = params.get('foo');
+let two = params.get('bar');
+console.log(one);
+console.log(two);
+console.log();
 
-// const stack = [1, 2];
+// params.set('test', 'abxcg')
+// console.log(params);
+// console.log(params.toString());
+// console.log();
 
-// stack.pop();
-// stack.pop();
-// stack.pop();
-// stack.pop();
+// url.search = params;
+// console.log(url);
+// console.log();
 
-// console.log(stack);
+// // Add a third parameter.
+// params.set("baz", 3);
+// console.log(params.toString()); // "foo=1&bar=2&baz=3"
+// console.log();
+// console.log(url);
