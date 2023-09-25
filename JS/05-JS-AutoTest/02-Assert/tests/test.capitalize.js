@@ -1,5 +1,5 @@
-import { strict as assert } from "node:assert";
-import { capitalize } from "../src/capitalize.js";
+import { strict as assert } from 'node:assert';
+import { capitalize } from '../src/capitalize.js';
 
 assert(capitalize('hello') === 'Hello');
 // if (capitalize('hello') !== 'Hello') {
@@ -18,4 +18,4 @@ assert(capitalize(''), 'W');
 // Специально сломанный тест, чтобы проверить работу assert.equal
 // assert.equal(capitalize('t'), 'W');
 
-console.log('Все тесты пройдены!')
+console.log('Все тесты пройдены!');

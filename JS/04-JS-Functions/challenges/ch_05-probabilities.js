@@ -10,7 +10,8 @@ probabilities.js
 Реализуйте и экспортируйте по умолчанию функцию, которая принимает на вход
 историю подбрасывания кубика в виде массива и возвращает объект.
 Ключом этого объекта служит число из списка, а значением – ещё один объект,
-в котором ключи – это числа, выпавшие сразу после первоначального числа, а значения – вероятность их выпадения.
+в котором ключи – это числа, выпавшие сразу после первоначального числа,
+а значения – вероятность их выпадения.
 
 Например, если передать на вход массив [1, 3, 1, 5, 1], итоговый объект будет выглядеть так:
 
@@ -266,19 +267,47 @@ console.log(a); // { '1': { '2': 3 } }
 // так записываем ключи объекта внутри ключа-родителя: { 1: { 2: ..., 3: ..., 5: ..., 6: ... } }
 // так записываем значение ключей объекта внутри ключа-родителя: { 1: { 2: 0.25, 3: 0.25, 5: 0.25, 6: 0.25 } }
 
+// >>>>>>>>>>> Объяснение преподавателя Сергея:
+// Функция countElements отвечает за подсчет конкретного значения в массиве.
+// Она не дублирует filter(), она создана для использования в связке с filter().
+
+// В функции findProbabilityForElement() создается новый массив filtered с элементами,
+// идущими после элемента element.
+
+// А функция countElements (прим., у меня это calcHowOftenElementOccursAfterCurrentKey)
+// уже используется для подсчета как часто встречается каждая цифра в этом новом массиве
+
+// вычисление вероятности зависит от двух переменных - сколько раз данное число
+// встречается после текущего числа и сколько вообще чисел идет после текущего числа
+
+// Например, в твоем случае двойка идет после единицы два раза, а тройка - три раза.
+// Всего чисел, идущих после единицы - пять (два плюс три)
+
+// Тогда вероятность каждого числа будет равна количеству вхождений этого числа,
+// деленному на общее количество чисел после текущего:
+
+// вероятность двойки: 2 / 5 = 0.4
+// вероятность тройки: 3 / 5 = 0.6
+
+// Вот так вычисляется эта вероятность в функции findProbabilityForElement
+
+// const totalElements = filtered.length - это общее количество элементов после текущего
+// const probability = countElements(filtered, currentElement) / totalElements - это кол-во вхождений текущего элемента, деленное на общее количество
+
 const calcHowOftenElementOccursAfterCurrentKey = (elements, element) => elements
   .filter((current) => current === element).length;
 
-const getProbabilities = (elements, element) => elements
+const findProbabilityForElement = (elements, element) => elements
   .filter((current, index) => element === elements[index - 1])
   .reduce((acc, el, i, filtered) => {
-    const calculate = calcHowOftenElementOccursAfterCurrentKey(filtered, el) / filtered.length;
-    return { ...acc, [el]: calculate };
+    const totalElements = filtered.length;
+    const probability = calcHowOftenElementOccursAfterCurrentKey(filtered, el) / totalElements;
+    return { ...acc, [el]: probability };
   }, {});
 
 const calculateProbabilities = (numbers) => _.uniq(numbers)
   .reduce((acc, number) => {
-    const probabilities = getProbabilities(numbers, number);
+    const probabilities = findProbabilityForElement(numbers, number);
     return { ...acc, [number]: probabilities };
   }, {});
 // ===========================================

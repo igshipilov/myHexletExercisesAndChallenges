@@ -114,7 +114,6 @@ https://lodash.com/docs/4.17.15
 // [0, 1, 1]
 // [1, 1, 1]
 
-
 // >> РЕШЕНО
 // Мы строим график сразу по каждому итерируемому числу
 // При этом каждое число дозаполняется нулями до суммы `max` и `min`,
@@ -142,14 +141,11 @@ https://lodash.com/docs/4.17.15
 // Не обрабатываются случаи, когда столбцы состоят сплошь из нулей (пробелов) –
 // такие столбцы просто не появляются.
 
-
 // >> ПРОБЛЕМЫ
 // ---
 
-
 // -----------------------------------------------------
 // ============= MY ==========================
-
 
 // const getLine = (number, min, max, sum) => {
 //   const bar = number > 0 ? '*' : '#';
@@ -190,7 +186,6 @@ https://lodash.com/docs/4.17.15
 // barChart(arr2);
 // ===========================================
 
-
 // ============= TEACHER =====================
 // const barChart = (numbers) => {
 //   const bottom = Math.min(0, ...numbers);
@@ -217,54 +212,48 @@ https://lodash.com/docs/4.17.15
 // ===========================================
 
 // В решении учителя эти строки:
-  // const bottom = Math.min(0, ...numbers);
-  // const top = Math.max(0, ...numbers);
+// const bottom = Math.min(0, ...numbers);
+// const top = Math.max(0, ...numbers);
 
 // Заменяют эти строки из моего решения:
-  // const hasPositive = (numbers) => Math.max(...numbers) > 0;
-  // const hasNegative = (numbers) => Math.min(...numbers) < 0;
+// const hasPositive = (numbers) => Math.max(...numbers) > 0;
+// const hasNegative = (numbers) => Math.min(...numbers) < 0;
 
-  // const getMatrix = (numbers) => {
-  //   const max = hasPositive(numbers) ? Math.max(...numbers) : 0;
-  //   const min = hasNegative(numbers) ? Math.abs(Math.min(...numbers)) : 0;
-  // ...
-  // };
-
-
+// const getMatrix = (numbers) => {
+//   const max = hasPositive(numbers) ? Math.max(...numbers) : 0;
+//   const min = hasNegative(numbers) ? Math.abs(Math.min(...numbers)) : 0;
+// ...
+// };
 
 // В решении учителя эти строки:
-  // const bottomSpace = ' '.repeat(Math.min(0, number) - bottom);
-  // const topSpace = ' '.repeat(top - Math.max(0, number));
+// const bottomSpace = ' '.repeat(Math.min(0, number) - bottom);
+// const topSpace = ' '.repeat(top - Math.max(0, number));
 
 // Заменяют эти строки из моего решения, кроме части `.split('')`:
-  // if (number > 0) {
-  //   return bar.repeat(number).padStart(max, space).padEnd(sum, space).split('');
-  // } if (number < 0) {
-  //   return bar.repeat(Math.abs(number)).padEnd(min, space).padStart(sum, space).split('');
-  // }
-
-
-
+// if (number > 0) {
+//   return bar.repeat(number).padStart(max, space).padEnd(sum, space).split('');
+// } if (number < 0) {
+//   return bar.repeat(Math.abs(number)).padEnd(min, space).padStart(sum, space).split('');
+// }
 
 // ============= MY- TEACHER =================
 
 // ЛОГИКА
 // Создаём матрицу, где массивы состоят из пробелов, баров и снова пробелов.
 // После разворота матрицы:
-  // -- пробелы справа станут пробелами снизу
-  // -- пробелы слева станут пробелами сверху
+// -- пробелы справа станут пробелами снизу
+// -- пробелы слева станут пробелами сверху
 
-// В конечном результате пробелы идут так: 
-  // сверху над отрицательными
-  // снизу под положительными
+// В конечном результате пробелы идут так:
+// сверху над отрицательными
+// снизу под положительными
 
 // То есть когда мы:
-  // итерируем отрицательное число, то все возможные пробелы идут сверху (слева, до поворота матрицы)
-  // итерируем положительное число, то все возможные пробелы идут снизу (справа, до поворота матрицы)
+// итерируем отрицательное число, то все возможные пробелы идут сверху (слева, до поворота матрицы)
+// итерируем положительное число, то все возможные пробелы идут снизу (справа, до поворота матрицы)
 
 // Пробелы справа (снизу) равны наименьшему числу из входного массива-аргумента минус бары в этой строке
 // Пробелы слева (сверху) равны наибольшему числу из входного массива-аргумента минус бары в этой строке
-
 
 const barChart = (numbers) => {
   const min = Math.min(0, ...numbers);
@@ -278,23 +267,21 @@ const barChart = (numbers) => {
     const topSpace = ' '.repeat(max - Math.max(0, number));
     const bottomSpace = ' '.repeat(Math.min(0, number) - min);
 
-    return [ ...topSpace, ...bar, ...bottomSpace ];
+    return [...topSpace, ...bar, ...bottomSpace];
   });
-  
+
   const rotatedChart = _.zip(...chart)
     .map((line) => line.join(''))
     .join('\n');
 
   console.log(rotatedChart);
-
 };
 
-  const arr2 = [1, 2, 0, 0, -1, -2];
-  barChart(arr2);
+const arr2 = [1, 2, 0, 0, -1, -2];
+barChart(arr2);
 
-  // console.log(_.zip(arr2, arr2, arr2))
+// console.log(_.zip(arr2, arr2, arr2))
 // ===========================================
-
 
 // const arr1 = [5, 10, -5, -3, 7];
 

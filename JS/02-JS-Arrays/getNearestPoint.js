@@ -1,15 +1,15 @@
+const locations = [
+  ['Park', [10, 5]],
+  ['Sea', [1, 3]],
+  ['Museum', [8, 4]],
+];
+
 const getDistance = ([x1, y1], [x2, y2]) => {
   const xs = x2 - x1;
   const ys = y2 - y1;
 
   return Math.sqrt(xs ** 2 + ys ** 2);
 };
-
-const locations = [
-  ['Park', [10, 5]],
-  ['Sea', [1, 3]],
-  ['Museum', [8, 4]],
-];
 
 const currentPoint = [5, 5];
 
@@ -61,17 +61,18 @@ const getTheNearestLocation = (locations, currentPoint) => {
     return null;
   }
 
-  // Записываем в переменную подмассив (соответствует locations[n], напр. ['Park', [10, 5]]
-  // Он выступает в роли названии локации точки отсчёта
-  let [nearestLocation] = locations;
+  // Записываем в переменную первый подмассив (у нас это ['Park', [10, 5]]
+  // Это подмассив с названием локации и её координатами,
+  // в дальнейшем эти координаты станут точкой отсчёта – с этой локацией будем сравнивать остальные локи
+  let [nearestLocation] = locations; // ['Park', [10, 5]
 
   // Записываем в переменную точку отсчёта – координаты, второй элемент этого подмассива,
   // соответствует locations[n][1], напр [10, 5]
   const [, nearestPoint] = nearestLocation;
 
   // Находим кратчайшую дистанцию. Аргументы подфункции здесь:
-  // 1. аргумент главной функции
-  // 2. координаты, как второй элемент подмассива
+  // 1. первый аргумент – это аргумент главной функции, это точка, ДЛЯ КОТОРОЙ мы ищем ближайшую локацию
+  // 2. второй аргумент – координаты текущей локации (первой из массива)
   let lowestDistance = getDistance(currentPoint, nearestPoint);
 
   // Проводим обычный перебор item в массиве.
@@ -98,22 +99,24 @@ const getTheNearestLocation = (locations, currentPoint) => {
   return nearestLocation;
 };
 
+console.log(getTheNearestLocation(locations, [1, 1]));
+
 /// /////////////////////////////////////////
 /// ////////// Test field //////////////////
 /// ///////////////////////////////////////
 
-const testLoc = [
-  ['Park', [10, 5]],
-  ['Sea', [1, 3]],
-  ['Museum', [8, 4]],
-];
+// const testLoc = [
+//   ['Park', [10, 5]],
+//   ['Sea', [1, 3]],
+//   ['Museum', [8, 4]],
+// ];
 
+// // const [first] = testLoc;
+// // const first = testLoc[0];
 // const [first] = testLoc;
-// const first = testLoc[0];
-const [first] = testLoc;
-const [, coord] = first;
+// const [, coord] = first;
 
-console.log(first);
+// console.log(first);
 
 /*
 

@@ -3,7 +3,7 @@ const capitalize = (word) => {
     return '';
   }
 
-  const [ firstChar, ...restChars ] = word;
+  const [firstChar, ...restChars] = word;
   return `${firstChar.toUpperCase()}${restChars.join('')}`;
 };
 

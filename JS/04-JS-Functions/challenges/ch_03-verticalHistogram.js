@@ -25,7 +25,6 @@ histogram.js
 Количество секций в столбце (высота столбца) должно соответствовать количеству выпадений
 каждой из сторон игральной кости.
 
-
 Примеры
 
 import displayHistogram from '../histogram.js';
@@ -53,7 +52,6 @@ displayHistogram(13, rollDie);
 //    -----------------------
 //     1   2   3   4   5   6
 
-
 Подсказки:
 
 Гистограмма.
@@ -77,14 +75,12 @@ https://lodash.com/docs/4.17.15
 -- Доп. чёрточка слева от каждой троицы чёрточек, кроме первой
 -- Пробел слева от каждого бара, кроме баров первого столбца (столбцы между собой разделены пробелом)
 
-
 */
 
 const tRollDice = () => Math.round(Math.random() * (6 - 1) + 1);
 // console.log(tRollDice());
 
 // ============= MY =====================
-
 
 const displayHistogram = (rollsCount, callbackRollDice) => {
   // const bar = '###';
@@ -93,10 +89,9 @@ const displayHistogram = (rollsCount, callbackRollDice) => {
   // const rolls = _.times(rollsCount, callbackRollDice);
   const rolls = callbackRollDice;
 
-  
   const numbers = diceSides.map((side) => rolls.filter((roll) => roll === side).length);
   const max = Math.max(...numbers);
-  
+
   console.log('>> numbers: ');
   console.log(numbers);
   console.log();
@@ -120,7 +115,7 @@ const displayHistogram = (rollsCount, callbackRollDice) => {
     const bar = '#'.repeat(number);
     const percentage = '42%';
     const topSpace = ' '.repeat(max - number);
-    const line = [ ...topSpace, percentage, ...bar ];
+    const line = [...topSpace, percentage, ...bar];
 
     return line;
 
@@ -129,8 +124,6 @@ const displayHistogram = (rollsCount, callbackRollDice) => {
   console.log('>> chart:');
   console.log(chart);
   console.log();
-
-
 
   // const correctedChart = chart.join()
   //   // .map((el) => el === '#' ? el = '###' : el);
@@ -153,7 +146,7 @@ const displayHistogram = (rollsCount, callbackRollDice) => {
   console.log(correctedChart);
   console.log();
 
-  const fillCorrected= correctedChart
+  const fillCorrected = correctedChart
     .map((line) => line.join('')).join('\n')
     .replaceAll(' ', '   ')
     .replaceAll('#', '###');
@@ -162,20 +155,15 @@ const displayHistogram = (rollsCount, callbackRollDice) => {
   console.log(fillCorrected);
   console.log();
 
-
-
-
-
   // const lines = diceSides.map((side) => {
   //   const count = rolls.filter((roll) => roll === side).length;
   //   const result = bar.repeat(count);
-    
+
   //   return result;
   // })
 
   // console.log(lines);
-
-}; 
+};
 // ======================================
 
 // ============= TEACHER =====================
@@ -193,7 +181,6 @@ displayHistogram(13, [2, 2, 3, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6]);
 //    -----------------------
 //     1   2   3   4   5   6
 
-
 // displayHistogram(32, tRollDice);
 // =>                 28%
 //                    ###
@@ -207,4 +194,3 @@ displayHistogram(13, [2, 2, 3, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6]);
 //    ### ### ### ### ### ###
 //    -----------------------
 //     1   2   3   4   5   6
-
