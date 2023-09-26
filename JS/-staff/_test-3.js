@@ -1,35 +1,31 @@
-let url = new URL("https://example.com?foo=1&bar=2");
-console.log(url);
-console.log();
+// const myFunc = (x) => {
+//   return (y) => {
+//     return y(x);
+//   }
+// };
 
-console.log(url.search);
-console.log();
+// const test = myFunc(5);
 
-let params = new URLSearchParams(url.search);
-console.log(params);
-console.log();
+// console.log(test(3))
 
-params.set('foo', 'testONE');
-console.log(params);
-console.log();
+// Безымянный вызов функции
+console.log(
+  ((num) => num * 2)(5)
+);
 
-let one = params.get('foo');
-let two = params.get('bar');
-console.log(one);
-console.log(two);
-console.log();
+const x2 = (num) => num * 2;
+console.log(
+  x2(5)
+);
 
-// params.set('test', 'abxcg')
-// console.log(params);
-// console.log(params.toString());
-// console.log();
+const multXY = (x, y) => x * y;
+console.log(
+  multXY(2, 4)
+);
 
-// url.search = params;
-// console.log(url);
-// console.log();
+// Безымянный вызов функции
+console.log(
+  ((x, y) => x * y)(2, 4)
+);
 
-// // Add a third parameter.
-// params.set("baz", 3);
-// console.log(params.toString()); // "foo=1&bar=2&baz=3"
-// console.log();
-// console.log(url);
+

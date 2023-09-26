@@ -1,16 +1,8 @@
-import _ from 'lodash';
+const identity = (v) => v;
+console.log(identity('wow')); // wow
 
-let obj;
-let objCopy;
+const plusAB = (a, b) => a + b;
+const sum = identity(plusAB);
 
-obj = {
-  one:
-    {
-      two: 1,
-    },
-};
-objCopy = _.cloneDeep(obj);
-
-obj.three.four = 42;
-
-console.log(obj);
+// const sum = identity((a, b) => a + b);
+console.log(sum(1, 8)); // 9

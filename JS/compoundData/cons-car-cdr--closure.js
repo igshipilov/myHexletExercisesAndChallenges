@@ -10,8 +10,8 @@ const cons = (a, b) => (message) => {
 const car = (pair) => pair('car');
 const cdr = (pair) => pair('cdr');
 
-const pair = cons(cons(1, cons(4, 3)), cons(5, 1));
+const pair = cons(4, 2);
+console.log(car(pair)); // 4
+console.log(cons(4, 2)('cdr')); // 2
 
-console.log(cdr(cdr(car(pair))))
-
-// console.log(cdr(cons(4, 3)))
+console.log(car(pair) === cons(4, 2)('car')); // true

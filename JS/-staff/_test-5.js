@@ -1,10 +1,7 @@
-// import url from 'node:url';
+console.log(
+  ((str) => `Hello, ${str}!`)('Frank')
+);
 
-const myURL =
-  new URL('https://user:pass@sub.example.com:8080/p/a/t/h?query=string#hash');
-
-console.log(myURL);
-
-console.log();
-console.log(myURL.toString())
-// console.log(JSON.stringify(myUrl, null, '  '));
+console.log(
+  ((el) => el * 2)((el) => el)
+)
