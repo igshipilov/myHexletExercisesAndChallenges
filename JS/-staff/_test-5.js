@@ -1,7 +1,7 @@
-console.log(
-  ((str) => `Hello, ${str}!`)('Frank')
-);
+const addString = (str1, str2) => (connector) => `${str1} ${connector} ${str2}`;
 
-console.log(
-  ((el) => el * 2)((el) => el)
-)
+const str = addString('one', 'two');
+
+console.log(str);
+console.log(str('and'));
+
