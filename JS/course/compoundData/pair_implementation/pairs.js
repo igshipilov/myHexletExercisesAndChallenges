@@ -1,11 +1,11 @@
 // @ts-check
+// Упражнение: https://ru.hexlet.io/courses/compound_data/lessons/pair_implementation/exercise_unit
 // Разъяснение Поддержки: https://ru.hexlet.io/topics/32139
 // Урок из курса Хекслет по функциональному программированию: https://ru.hexlet.io/courses/js-functions-hard-way/lessons/return-function/theory_unit
 
-
 export const cons = (x, y) => (f) => f(x, y);
 
-console.log(cons)
+// console.log(cons)
 
 // BEGIN (write your solution here)
 export const car = cons((x) => x);

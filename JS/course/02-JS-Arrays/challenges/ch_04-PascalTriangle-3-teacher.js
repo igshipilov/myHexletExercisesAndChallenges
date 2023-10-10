@@ -28,7 +28,7 @@ generate(4); // [1, 4, 6, 4, 1]
 
 const getNextRow = (previousRow) => {
   const nextRow = [];
-  for (i = 0; i <= previousRow.length; i += 1) {
+  for (let i = 0; i <= previousRow.length; i += 1) {
     const first = previousRow[i - 1] || 0;
     const second = previousRow[i] || 0;
     nextRow[i] = first + second;

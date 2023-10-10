@@ -15,9 +15,7 @@ describe('geDaysInMonth:', () => {
     expect(get(3, 2000)).toBe(31);
   });
 });
-  // END
-
-
+// END
 
 // v2, but not working from `describe('is it 30 or 31 days in this month?'`
 // // BEGIN (write your solution here)

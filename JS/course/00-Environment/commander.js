@@ -23,7 +23,6 @@ const join = (first, second, connector = '') => `${first}${connector}${second}`;
 
 // program.parse();
 
-
 program.command('sum')
   .argument('[first]', 'первое число')
   .argument('[second]', 'второе число')
@@ -31,6 +30,6 @@ program.command('sum')
   .action((first = 0, second = 0) => {
     const result = Number(first) + Number(second);
     console.log(result);
-  })
+  });
 
 program.parse();

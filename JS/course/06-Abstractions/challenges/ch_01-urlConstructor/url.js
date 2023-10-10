@@ -4,7 +4,6 @@ https://ru.hexlet.io/challenges/js_data_abstraction_url_exercise/instance
 url.js
 Реализуйте абстракцию для работы с урлами. Она должна извлекать и менять части адреса. Интерфейс:
 
-
 make(url) - Конструктор. Создает урл.
 
 setProtocol(data, protocol) - Сеттер. Меняет схему.
@@ -40,13 +39,11 @@ toString(url); // 'http://hexlet.io/404?q=low&page=5'
 setQueryParam(url, 'q', 'high');
 toString(url); // 'http://hexlet.io/404?q=high&page=5'
 
-
 Подсказки
 Используйте стандартный объект URL для работы с адресами: URL
 Методы set() и get()
 
 */
-
 
 // ============== MY-TEACHER ========================
 const make = (stringURL) => new URL(stringURL);
@@ -72,7 +69,7 @@ const getQueryParam = (data, paramName, defaultValue = null) => (
 );
 
 const setQueryParam = (data, key, value) => {
-  data.searchParams.set(key, value)
+  data.searchParams.set(key, value);
 };
 
 const toString = (url) => url.toString();

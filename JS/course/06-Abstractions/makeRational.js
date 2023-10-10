@@ -3,7 +3,6 @@ https://ru.hexlet.io/courses/js-data-abstraction/lessons/invariants/exercise_uni
 
 */
 
-
 //  ========== MY ==================
 // // BEGIN (write your solution here)
 
@@ -40,7 +39,6 @@ https://ru.hexlet.io/courses/js-data-abstraction/lessons/invariants/exercise_uni
 // };
 // // END
 //  ================================
-
 
 //  ========== TEACHER==============
 // BEGIN (write your solution here)

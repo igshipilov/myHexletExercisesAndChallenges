@@ -1,5 +1,4 @@
 // @ts-ignore
-import { expect } from 'chai';
 import { cons, car, cdr } from '../pairs.js';
 
 describe('Pairs', () => {
