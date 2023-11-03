@@ -10,8 +10,7 @@ const stringify = (data, replacer = ' ', spaceCount = 1) => {
     const currentIndent = replacer.repeat(indentSize);
     const bracketIndent = replacer.repeat(indentSize - spaceCount);
 
-    const lines = Object
-      .entries(node)
+    const lines = Object.entries(node)
       .map(([key, value]) => {
         const result = `${currentIndent}${key}: ${iter(value, depth + 1)}`;
 

@@ -1,21 +1,15 @@
-// console.log(
+// @ts-check
 
-// );
+// BEGIN (write your solution here)
+function getBeginPoint() { return this.beginPoint; }
+function getEndPoint() { return this.endPoint; }
 
-// const test = (x) => {
-//   return x * 2
-// };
+function Segment(beginPoint, endPoint) {
+  this.beginPoint = beginPoint;
+  this.endPoint = endPoint;
+  this.getBeginPoint = getBeginPoint;
+  this.getEndPoint = getEndPoint;
+}
 
-// console.log(
-//   (x) => {
-//   return x * 2
-// }(3)
-// )
-
-const multTwo = (x) => x * 2;
-
-console.log(
-  ((x) => x * 2)(3),
-);
-// ===
-console.log(multTwo(3));
+export default Segment;
+// END

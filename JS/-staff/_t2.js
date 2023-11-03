@@ -1,16 +1,21 @@
-const cons = (str1, str2) => (message) => {
-  switch (message) {
-    case 'car':
-      return str1;
-    case 'cdr':
-      return str2;
-    default:
-      return `${str1}\\t${str2}`;
-  }
+// const obj = {
+//   name: 'Karl',
+
+//   // НЕ РАБОТАЕТ
+//   callback() {
+//     this.name = this.name.split('').reverse().join('');
+//   }
+
+//   // РАБОТАЕТ
+//   // callback() {
+//   //   return this.name.split('').reverse().join('');
+//   // }
+// };
+
+const obj = {
+  name: 'Karl',
+  getName() { return this.name; },
+  // getName: this.name,
 };
 
-const pair = cons('first', 'second');
-console.log(pair());
-
-const car = (pair) => pair('car');
-const cdr = (pair) => pair('cdr');
+console.log(obj.getName());

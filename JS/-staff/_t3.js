@@ -1,8 +1,10 @@
-const arr = [1, 1, 2, 3, 4];
+const sourceObj = {
+  a: 'test1',
+  getA() { return this.a; },
+};
 
-console.log(arr.map((num) => {
-  if (num === 1) {
-    return num * 10;
-  }
-  return num;
-}));
+console.log(sourceObj.getA());
+
+const clonedObj = structuredClone(sourceObj);
+
+console.log(clonedObj);

@@ -5,13 +5,14 @@
   "description": "my work files",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest"
   },
   "bin": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@hexlet/immutable-fs-trees": "^0.7.1",
+    "eslint-config-airbnb": "^19.0.4",
     "commander": "^11.0.0",
     "core-js": "^3.32.2",
     "crc-32": "*",
