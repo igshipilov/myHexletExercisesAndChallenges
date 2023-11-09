@@ -1,68 +1,75 @@
-function getX() { return this.x; }
-function getY() { return this.y; }
+export default class Node {
+  constructor(root = null, children = [null, null]) {
+    this.root = root;
+    this.children = children;
+  }
 
-function Point(x, y) {
-  this.x = x;
-  this.y = y;
-  this.getX = getX;
-  this.getY = getY;
+  getKey() {
+    return this.root;
+  }
+
+  getLeft() {
+    const [left] = this.children;
+    return left;
+  }
+
+  getRight() {
+    const [, right] = this.children;
+    return right;
+  }
+
+  insert(num) {
+    if (this.root === null) {
+      this.root = num;
+    } else if (this.root > num) {
+      // здесь надо проходить рекурсивно.
+      // Сейчас ошибка в том, что я строго заменяю left или right,
+      // а надо сначала проверить: является ли он нулём?
+      // Эту проверку мы делаем в первом `if (this.root === null)`,
+      // поэтому надо как-то (рекурсивно!) подвести к этой проверке.
+      this.children = [new Node(num), this.getRight()];
+    } else if (this.root < num) {
+      this.children = [this.getLeft(), new Node(num)];
+    }
+  }
 }
 
-function getBeginPoint() { return this.beginPoint; }
-function getEndPoint() { return this.endPoint; }
 
-function Segment(beginPoint, endPoint) {
-  this.beginPoint = beginPoint;
-  this.endPoint = endPoint;
-  this.getBeginPoint = getBeginPoint;
-  this.getEndPoint = getEndPoint;
-}
 
-const point1 = new Point(1, 2);
-const point2 = new Point(3, 4);
+const tree = new Node();
 
-console.log('>> points:');
-console.log(point1);
-console.log(point2);
+console.log(tree);
+console.log(tree.getKey());
+console.log(tree.getLeft());
+console.log(tree.getRight());
+console.log(`\n\n`);
 
-console.log('\n\n');
-console.log('>> point2.getX() // 3');
-console.log(point2.getX());
+tree.insert(9);
+console.log(tree);
+console.log(tree.getKey());
+console.log(tree.getLeft());
+console.log(tree.getRight());
+console.log(`\n\n`);
 
-const segment = new Segment(point1, point2);
+tree.insert(17);
+console.log(tree);
+console.log(tree.getKey());
+console.log(tree.getLeft());
+console.log(tree.getRight());
+console.log(`\n\n`);
 
-console.log('\n\n');
-console.log('>> segment:');
-console.log(segment);
+tree.insert(4);
+console.log(tree);
+console.log(tree.getKey());
+console.log(tree.getLeft());
+console.log(tree.getRight());
+console.log(`\n\n`);
 
-console.log('\n\n');
-console.log('>> get points:');
-console.log(segment.getBeginPoint());
-console.log(segment.getEndPoint());
 
-function reverse(segment) {
-  // const currentBegin = segment.getEndPoint();
-  // const currentEnd = segment.getBeginPoint();
 
-  // const currentBegin = new segment.getEndPoint();
-  // const currentEnd = new segment.getBeginPoint();
-
-  const currentBegin = { ...segment.getEndPoint() };
-  const currentEnd = { ...segment.getBeginPoint() };
-
-  return new Segment(currentBegin, currentEnd);
-}
-
-const reversedSegment = reverse(segment);
-
-console.log('\n\n');
-console.log('>> reversed segment:');
-console.log(reversedSegment);
-
-console.log('\n\n');
-console.log('>> reversedSegment.beginPoint.x');
-console.log(reversedSegment.beginPoint.x);
-
-console.log('\n\n');
-console.log('>> reversedSegment.getBeginPoint().getX()');
-console.log(reversedSegment.getBeginPoint().getX());
+tree.insert(3);
+console.log(tree);
+console.log(tree.getKey());
+console.log(tree.getLeft());
+console.log(tree.getRight());
+console.log(`\n\n`);

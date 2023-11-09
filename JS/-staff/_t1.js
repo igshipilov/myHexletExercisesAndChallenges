@@ -1,19 +1,20 @@
-// Такую функцию принято называть конструктором (хотя технически это обычная функция с контекстом)
-// Конструкторы пишутся с заглавной буквы
-function Company(name, website) {
-  this.name = name;
-  this.website = website;
-  // Методы по-прежнему определены снаружи как обычные функции
-  this.getName = getName;
-  this.getWebsite = getWebsite;
+export default class Circle {
+  constructor(radius) {
+    this.radius = radius;
+  }
+
+  getArea() {
+    return Math.PI * this.radius ** 2;
+  }
+
+  getCircumference() {
+    return 2 * Math.PI * this.radius;
+  }
 }
 
-// const company = new Company('Hexlet', 'https://hexlet.io');
-// console.log(company.getName()); // Hexlet
+const circle = new Circle(3);
 
-// Упрощенная иллюстрация работы new внутри интерпретатора при таком вызове:
-// new Company();
+console.log(circle);
+console.log(circle.getArea());
 
-const obj = {};
-Company.bind(obj)(name, website); // этот вызов просто наполнил this (равный obj) нужными данными
-console.log(obj);
+

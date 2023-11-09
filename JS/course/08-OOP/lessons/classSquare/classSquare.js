@@ -10,4 +10,4 @@ class Square {
 };
 
 const square1 = new Square(5);
-console.log(square1.area); // Square { side: 5, area: 25 }
+console.log(square1.area()); // Square { side: 5, area: 25 }

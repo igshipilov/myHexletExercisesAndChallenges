@@ -1,10 +1,19 @@
-const sourceObj = {
-  a: 'test1',
-  getA() { return this.a; },
-};
+class Money {
+  static rates = {
+    usd: {
+      eur: 0.7,
+    },
+    eur: {
+      usd: 1.2,
+    },
+  };
 
-console.log(sourceObj.getA());
+  static setRate(from, to, value) {
+    this.rates[from][to] = value;
+  }
+}
 
-const clonedObj = structuredClone(sourceObj);
-
-console.log(clonedObj);
+// Использование ровно такое же как и в примерах выше
+console.log(Money.rates.usd.eur); // 0.7
+Money.setRate('usd', 'eur', 0.8);
+console.log(Money.rates.usd.eur); // 0.8
