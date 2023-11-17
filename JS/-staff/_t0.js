@@ -1,1 +1,1 @@
-console.log(5 + undefined);
+console.log(!Number('asdf'));

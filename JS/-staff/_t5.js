@@ -1,75 +1,23 @@
-export default class Node {
-  constructor(root = null, children = [null, null]) {
-    this.root = root;
-    this.children = children;
-  }
+// @ts-check
 
-  getKey() {
-    return this.root;
-  }
+import yup from 'yup';
 
-  getLeft() {
-    const [left] = this.children;
-    return left;
-  }
+const genres = [
+  'drama', 'horror', 'fantasy', 'classic',
+];
 
-  getRight() {
-    const [, right] = this.children;
-    return right;
-  }
+// BEGIN (write your solution here)
+export default function getInvalidBooks(books) {
+  const schema = yup.object().shape({
+    name: yup.string().required(),
+    author: yup.string().required(),
+    pagesCount: yup.number().positive(),
+    link: yup.string().min(1).url(),
+    genre: yup.mixed().oneOf(genres),
+  });
 
-  insert(num) {
-    if (this.root === null) {
-      this.root = num;
-    } else if (this.root > num) {
-      // здесь надо проходить рекурсивно.
-      // Сейчас ошибка в том, что я строго заменяю left или right,
-      // а надо сначала проверить: является ли он нулём?
-      // Эту проверку мы делаем в первом `if (this.root === null)`,
-      // поэтому надо как-то (рекурсивно!) подвести к этой проверке.
-      this.children = [new Node(num), this.getRight()];
-    } else if (this.root < num) {
-      this.children = [this.getLeft(), new Node(num)];
-    }
-  }
+  const invalidBooks = books.filter((book) => !schema.isValidSync(book));
+
+  return invalidBooks;
 }
-
-
-
-const tree = new Node();
-
-console.log(tree);
-console.log(tree.getKey());
-console.log(tree.getLeft());
-console.log(tree.getRight());
-console.log(`\n\n`);
-
-tree.insert(9);
-console.log(tree);
-console.log(tree.getKey());
-console.log(tree.getLeft());
-console.log(tree.getRight());
-console.log(`\n\n`);
-
-tree.insert(17);
-console.log(tree);
-console.log(tree.getKey());
-console.log(tree.getLeft());
-console.log(tree.getRight());
-console.log(`\n\n`);
-
-tree.insert(4);
-console.log(tree);
-console.log(tree.getKey());
-console.log(tree.getLeft());
-console.log(tree.getRight());
-console.log(`\n\n`);
-
-
-
-tree.insert(3);
-console.log(tree);
-console.log(tree.getKey());
-console.log(tree.getLeft());
-console.log(tree.getRight());
-console.log(`\n\n`);
+// END
