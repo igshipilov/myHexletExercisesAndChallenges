@@ -1,4 +1,9 @@
-const cities = new Set();
-cities.add('one');
+const test = (...props) => {
+  const [...arr] = props;
 
-console.log(cities);
+  return [...props];
+};
+
+const returnArray = test('one', 'two', 'three');
+console.log(returnArray);
+console.log(returnArray.includes('one'));

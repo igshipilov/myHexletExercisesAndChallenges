@@ -1,23 +1,32 @@
-// @ts-check
+import fs from 'fs';
+import { map } from 'async';
 
-import yup from 'yup';
+// orig
+// map(['JS/-staff/files-for-practice/file1.txt', 'JS/-staff/files-for-practice/file2.txt'], fs.readFile, (err1, results) => {
+//   if (err1) {
+//     return;
+//   }
+//   fs.writeFile('JS/-staff/files-for-practice/new-file', results.join(''), (err2) => {
+//     if (err2) {
+//       return;
+//     }
+//     console.log('finished!');
+//   });
+// });
 
-const genres = [
-  'drama', 'horror', 'fantasy', 'classic',
-];
+const path1 = 'JS/-staff/files-for-practice/file1.txt';
+const path2 = 'JS/-staff/files-for-practice/file2.txt';
+const pathResult = 'JS/-staff/files-for-practice/resultFile.txt';
 
-// BEGIN (write your solution here)
-export default function getInvalidBooks(books) {
-  const schema = yup.object().shape({
-    name: yup.string().required(),
-    author: yup.string().required(),
-    pagesCount: yup.number().positive(),
-    link: yup.string().min(1).url(),
-    genre: yup.mixed().oneOf(genres),
-  });
+map([path1, path2], fs.readFile, (err1, results) => {
+  if (err1) {
+    return;
+  }
 
-  const invalidBooks = books.filter((book) => !schema.isValidSync(book));
-
-  return invalidBooks;
-}
-// END
+  fs.writeFile(pathResult, results.join(' '), (err2) => {
+    if (err2) {
+      return;
+    }
+    console.log('success!')
+  })
+});

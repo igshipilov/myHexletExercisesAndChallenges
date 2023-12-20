@@ -1,13 +1,38 @@
-class Square {
-  constructor(side) {
-    this.side = side;
-    this.area = this.constructor.area(side);
-  }
+export default function protect(obj, protectedProps) {
+  const handler = {
+    set: (target, prop, value) => {
+      if (protectedProps.includes(prop)) {
+        throw new Error(`Error: Access to '${prop}' is restricted`);
+      } else {
+        target[prop] = value;
+        return true;
+      }
+    },
+    get: (target, prop) => {
+      if (protectedProps.includes(prop)) {
+        throw new Error(`Error: Access to '${prop}' is restricted`);
+      } return target[prop];
+    },
+  };
 
-  static area(num) {
-    return num ** 2;
-  }
+  return new Proxy(obj, handler);
 }
 
-const square1 = new Square(5);
-console.log(square1.area); // Square { side: 5, area: 25 }
+const user = {
+  name: 'John',
+  age: 25,
+  password: 'secret',
+};
+
+const protectedProps = ['password'];
+
+const protectedUser = protect(user, protectedProps);
+protectedUser.name = 'Jane';
+protectedUser.age = 21;
+
+console.log(protectedUser.name);
+console.log(protectedUser.age);
+
+console.log(protectedUser.password);
+protectedUser.password = 'testPassword';
+console.log(protectedUser.password);

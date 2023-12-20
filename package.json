@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@hexlet/immutable-fs-trees": "^0.7.1",
+    "async": "^3.2.5",
     "commander": "^11.0.0",
     "core-js": "^3.32.2",
     "crc-32": "*",
