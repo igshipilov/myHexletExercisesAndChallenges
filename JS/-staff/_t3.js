@@ -1,9 +1,10 @@
-const test = (...props) => {
-  const [...arr] = props;
+// @ts-check
+/* eslint-disable import/prefer-default-export */
+import fsp from 'fs/promises';
 
-  return [...props];
-};
+// BEGIN (write your solution here)
 
-const returnArray = test('one', 'two', 'three');
-console.log(returnArray);
-console.log(returnArray.includes('one'));
+export const reverse = (filepath) => fsp.readFile(filepath, 'utf-8')
+  .then((file) => file.split('\n').reverse().join('\n'))
+  .then((reversedFile) => fsp.writeFile(filepath, reversedFile, 'utf-8'));
+// END

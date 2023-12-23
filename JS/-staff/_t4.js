@@ -1,20 +1,9 @@
-import path from 'path';
-import fs from 'fs';
+// import fs from 'fs';
+import fsp from 'fs/promises';
 
-const getFileOwners = (dirpath, cb) => {
-  fs.readdir(dirpath, (_error1, filenames) => {
-    const readFileStat = (items, result = []) => {
-      if (items.length === 0) {
-        // Обработку ошибок пока не рассматриваем
-        cb(null, result);
-        return;
-      }
-      const [first, ...rest] = items;
-      const filepath = path.join(dirpath, first);
-      fs.stat(filepath, (_error2, stat) => {
-        readFileStat(rest, [...result, { filename: first, owner: stat.uid }]);
-      });
-    };
-    readFileStat(filenames);
-  });
-};
+// const { promises: fsp } = fs;
+
+// const promise = fs.promises.readFile('JS/-staff/_t4.js', 'utf-8');
+const promise = fsp.readFile('JS/-staff/_t4.js', 'utf-8');
+// Файл еще не прочитан
+promise.then((content) => console.log(content));

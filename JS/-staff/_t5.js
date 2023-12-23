@@ -1,32 +1,22 @@
 import fs from 'fs';
-import { map } from 'async';
 
-// orig
-// map(['JS/-staff/files-for-practice/file1.txt', 'JS/-staff/files-for-practice/file2.txt'], fs.readFile, (err1, results) => {
-//   if (err1) {
-//     return;
-//   }
-//   fs.writeFile('JS/-staff/files-for-practice/new-file', results.join(''), (err2) => {
-//     if (err2) {
-//       return;
-//     }
-//     console.log('finished!');
-//   });
-// });
+const filepath = 'JS/-staff/_t4.js';
 
-const path1 = 'JS/-staff/files-for-practice/file1.txt';
-const path2 = 'JS/-staff/files-for-practice/file2.txt';
-const pathResult = 'JS/-staff/files-for-practice/resultFile.txt';
+const watch = (cb) => {
+  const checkFile = (id) => {
+    fs.stat(filepath, (err, stats) => {
+      if (err) {
+        clearInterval(id);
+        cb(err);
+        return;
+      }
+      // const { mtimeMs } = stats;
+      cb(null);
+    });
+  };
+  const id = setInterval(() => checkFile(id), 200);
 
-map([path1, path2], fs.readFile, (err1, results) => {
-  if (err1) {
-    return;
-  }
+  return id;
+};
 
-  fs.writeFile(pathResult, results.join(' '), (err2) => {
-    if (err2) {
-      return;
-    }
-    console.log('success!')
-  })
-});
+watch(() => console.log('wow'));
