@@ -1,4 +1,3 @@
-const a = 27;
+const arr = [];
 
-console.log(a.toString(26));
-console.log(parseInt(a.toString(26), 26));
+console.log(arr.concat('test'));

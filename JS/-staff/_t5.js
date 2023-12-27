@@ -1,22 +1,30 @@
-import fs from 'fs';
+import fsp from 'fs/promises';
+import path from 'path';
+import _ from 'lodash';
 
-const filepath = 'JS/-staff/_t4.js';
 
-const watch = (cb) => {
-  const checkFile = (id) => {
-    fs.stat(filepath, (err, stats) => {
-      if (err) {
-        clearInterval(id);
-        cb(err);
-        return;
-      }
-      // const { mtimeMs } = stats;
-      cb(null);
-    });
-  };
-  const id = setInterval(() => checkFile(id), 200);
 
-  return id;
+// export const getDirectorySize = (dirpath) => {
+//   const arrPromise = fsp.readdir(dirpath);
+
+//   arrPromise.then((coll) => coll.map((el) => fsp.stat(path.join(dirpath, el))))
+//   // .then((currentPath) => fsp.stat(currentPath))
+//   .then(console.log)
+
+//   const promises = Promise.all(arrPromise);
+
+//   // return promises.then((elem) => console.log(elem.size));
+// };
+
+export const getDirectorySize = (dirpath) => {
+  const arrPromise = fsp.readdir(dirpath);
+
+  arrPromise.then((coll) => coll.map((el) => path.join(dirpath, el)))
+    .then((result) => _.sumBy(result
+      .map((element) => fsp.stat(element))
+      .then((arr) => arr.filter((stat) => stat.isFile()), 'size')))
+    .then(console.log);
+
 };
 
-watch(() => console.log('wow'));
+getDirectorySize('JS/-staff/files-for-practice');
